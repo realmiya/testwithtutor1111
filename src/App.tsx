@@ -1,13 +1,17 @@
 import logo from "./logo.svg";
 import style from "./App.module.scss";
-import Counter from "./screens/Counter";
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 // import { Router, Route, Switch } from "react-router-dom";
-import Header from "./layouts/UpperNav/UpperNav";
-
+// import Header from "./layouts/UpperNav";
+import Header from "./layouts/UpperNav";
+import Sidebar from "./layouts/sideNav"
+interface State{
+    open:boolean;
+}
 function App() {
     const [open, setOpen] = useState(true);
+    const anotherValue:boolean=open;
     function hideNav() {
         setOpen(false);
     }
@@ -15,25 +19,35 @@ function App() {
         setOpen(true);
     }
 
+    function showhide(){
+        setOpen(!open)
+    }
+
     return (
         <div className={style.App}>
             <header className={style["App-header"]}>
                 <div>
-                    <Header open={open} hideNav={hideNav} showNav={showNav} />
+                    <Header 
+                    open={open} 
+                    // anotherValue={anotherValue}
+                    />
+
                 </div>
-                <Counter />
-                <img src={logo} className={style["App-logo"]} alt="logo" />
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a
-                    className={style["App-link"]}
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn Reactdadas
-                </a>
+                <div className="main">
+                    {/* <Sidebar open={open} hideNav={hideNav} showNav={showNav} /> */}
+                    <Sidebar 
+                    open={open} 
+                    // anotherValue={anotherValue}
+
+                    // hideNav={hideNav} 
+                    // showNav={showNav} />
+                    showhide={showhide}/>
+                    <div className="container">
+
+
+                    </div>
+                </div>
+
             </header>
         </div>
     );
