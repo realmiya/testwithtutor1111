@@ -6,12 +6,13 @@ import ReactDOM from "react-dom";
 // import Header from "./layouts/UpperNav";
 import Header from "./layouts/UpperNav";
 import Sidebar from "./layouts/sideNav"
-interface State{
-    open:boolean;
-}
+// interface State{
+//     open:boolean;
+// }
 function App() {
     const [open, setOpen] = useState(true);
     const anotherValue:boolean=open;
+
     function hideNav() {
         setOpen(false);
     }
@@ -20,7 +21,7 @@ function App() {
     }
 
     function showhide(){
-        setOpen(!open)
+        setOpen(prevState => !prevState)
     }
 
     return (
