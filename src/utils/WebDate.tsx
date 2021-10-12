@@ -1,5 +1,6 @@
-import React from "react";
-export const WebDate = () => {
+import React, { useEffect, useState } from "react";
+
+const WebDate = () => {
     const monthNames: string[] = [
         "Jan",
         "Feb",
@@ -15,16 +16,20 @@ export const WebDate = () => {
         "Dec",
     ];
     const newDate: any = new Date();
-    // console.log(newDate);
     const date = newDate.getDate();
     const month = newDate.getMonth();
     const year = newDate.getFullYear();
-    const dateSTR = `${date}th, ${monthNames[month]}, ${year}`
+    const TodayDate = `${date}th, ${monthNames[month]}, ${year}`;
+    const [dateStr, setDateStr] = useState("");
     // console.log(dateSTR);
     // return dateSTR;
+    useEffect(() => {
+        setDateStr(TodayDate);
+    });
     return (
         <>
-            <p>{dateSTR}</p>
+            <p>{dateStr}</p>
         </>
-    )
+    );
 };
+export default WebDate;

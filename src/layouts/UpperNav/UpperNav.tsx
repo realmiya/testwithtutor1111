@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import styles from "./UpperNav.module.scss";
-import { WebDate } from "../../utils"
+import WebDate from "../../utils";
 
 interface headerProps {
     unfolded: boolean;
@@ -10,7 +10,6 @@ interface headerProps {
 
 function Header(props: headerProps) {
     const { unfolded } = props;
-
 
     const [search, setSearch] = useState(false);
 
@@ -27,9 +26,7 @@ function Header(props: headerProps) {
                 <div>
                     <div
                         className={
-                            unfolded
-                                ? styles.logo
-                                : styles["logo--active"]
+                            unfolded ? styles.logo : styles["logo--active"]
                         }
                     >
                         <svg
@@ -73,16 +70,17 @@ function Header(props: headerProps) {
                             className={
                                 search
                                     ? styles["searchBox--focus"]
-                                    : styles["searchBox"]
+                                    : styles.searchBox
                             }
                         >
-                            <button type="button"
+                            <button
+                                type="button"
                                 className={
                                     search
                                         ? styles["searchIcon--focus"]
-                                        : styles["searchIcon"]
+                                        : styles.searchIcon
                                 }
-                                onClick={()=>focusSearch()}
+                                onClick={() => focusSearch()}
                                 onBlur={() => onblurSearch()}
                             >
                                 <FiSearch size={20} />
@@ -96,14 +94,14 @@ function Header(props: headerProps) {
                                 onBlur={() => onblurSearch()}
                                 className={
                                     search
-                                    ? styles["searchInput--focus"]
-                                    : styles["searchInput"]
+                                        ? styles["searchInput--focus"]
+                                        : styles.searchInput
                                     // styles["searchInput"]
                                 }
                             />
                         </div>
 
-                        <div className={styles["alertSec"]}>
+                        <div className={styles.alertSec}>
                             <svg
                                 width="29"
                                 height="31"
@@ -126,7 +124,7 @@ function Header(props: headerProps) {
                             </svg>
                         </div>
 
-                        <div className={styles["userAvatar"]}>
+                        <div className={styles.userAvatar}>
                             {/* <RiAccountCircleLine size={30} style={{ color: "#666666 " }} /> */}
                             <svg
                                 width="32"
@@ -158,9 +156,7 @@ function Header(props: headerProps) {
                                 />
                             </svg>
 
-                            <div className={styles["userName"]}>
-                                Name
-                            </div>
+                            <div className={styles.userName}>Name</div>
                         </div>
                     </div>
                 </div>

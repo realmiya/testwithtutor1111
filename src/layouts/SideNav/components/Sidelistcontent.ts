@@ -1,13 +1,14 @@
+import { IconType } from "react-icons";
 import { FiFileText, FiTruck, FiArchive, FiCalendar } from "react-icons/fi";
 import { RiAccountCircleLine } from "react-icons/ri";
 
-interface SideListContent {
+interface ISideListContent {
     id: number;
-    menuIcon: any;
+    menuIcon: IconType;
     menuName: string;
 }
 
-const navigationContent: SideListContent[] = [
+const navigationContent: ISideListContent[] = [
     { id: 0, menuIcon: FiFileText, menuName: "Dashboard" },
     { id: 1, menuIcon: FiTruck, menuName: "Inventory" },
     { id: 2, menuIcon: FiArchive, menuName: "Order History" },

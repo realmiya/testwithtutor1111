@@ -29,7 +29,8 @@ const Sidebar: React.FC<sideProps> = ({ unfolded, collapse }: sideProps) => (
                     }
                 >
                     {unfolded && (
-                        <div
+                        <button
+                            type="button"
                             className={styles.sideWrapper__navBtn__arrowBtn}
                             onClick={() => {
                                 collapse();
@@ -37,10 +38,11 @@ const Sidebar: React.FC<sideProps> = ({ unfolded, collapse }: sideProps) => (
                         >
                             <FiChevronLeft />
                             Hide
-                        </div>
+                        </button>
                     )}
                     {!unfolded && (
-                        <div
+                        <button
+                            type="button"
                             className={styles.sideWrapper__navBtn__arrowBtn}
                             onClick={() => {
                                 collapse();
@@ -48,7 +50,7 @@ const Sidebar: React.FC<sideProps> = ({ unfolded, collapse }: sideProps) => (
                         >
                             <FiChevronRight />
                             Show
-                        </div>
+                        </button>
                     )}
                 </div>
                 <ul

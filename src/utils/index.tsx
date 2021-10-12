@@ -1,1 +1,1 @@
-export {WebDate} from "./WebDate";
+export { default } from "./WebDate";
