@@ -9,18 +9,18 @@
 	align-items: center;
 
 	&:hover {
-		color: $white;
+		color: $MainBackgroundColor;
 	}
 }
 
 
 .sidebar {
-	background-color: $BackgroundDarkBlack;
+	background-color: $HeaderBarSideBarBackgroundColorMainTextColor;
 	border-style: none;
 	min-width: 171px;
 
 	&--collapsed {
-		background-color: $BackgroundDarkBlack;
+		background-color: $HeaderBarSideBarBackgroundColorMainTextColor;
 		border-style: none;
 		min-width: 100px;
 	}
@@ -34,7 +34,7 @@
 	height: 100%;
 	font-family: "Manrope", sans-serif;
 	font-size: 14px;
-	border-top: 1px solid $white;
+	border-top: 1px solid $MainBackgroundColor;
 	width: auto;
 
 	&__navBtn,
@@ -59,6 +59,7 @@
 			justify-content: center;
 			padding: 2px 8px 3px 8px;
 			font-size: 10px;
+			border: none;
 		}
 	}
 }
@@ -67,8 +68,8 @@
 	margin: 10px 0px 10px 10px;
 
 	&:hover {
-		color: $white;
-		border-bottom: 1px solid $white;
+		color: $MainBackgroundColor;
+		border-bottom: 1px solid $MainBackgroundColor;
 	}
 }
 
@@ -78,13 +79,13 @@
 	width: 20px;
 
 	&:hover {
-		color: $white;
+		color: $MainBackgroundColor;
 	}
 
 	&--collapsed {
 		&:hover {
-			color: $white;
-			border-bottom: 1px solid $white;
+			color: $MainBackgroundColor;
+			border-bottom: 1px solid $MainBackgroundColor;
 		}
 	}
 }

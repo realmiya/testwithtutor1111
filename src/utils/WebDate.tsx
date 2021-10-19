@@ -21,11 +21,11 @@ const WebDate = () => {
     const year = newDate.getFullYear();
     const TodayDate = `${date}th, ${monthNames[month]}, ${year}`;
     const [dateStr, setDateStr] = useState("");
-    // console.log(dateSTR);
-    // return dateSTR;
+    // console.log(dateStr);
+
     useEffect(() => {
         setDateStr(TodayDate);
-    });
+    }, [TodayDate]);
     return (
         <>
             <p>{dateStr}</p>

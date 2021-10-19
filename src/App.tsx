@@ -1,25 +1,17 @@
-import { useState } from "react";
+import Link from "@mui/material/Link";
 import style from "./App.module.scss";
-import Header from "./layouts/UpperNav";
-import Sidebar from "./layouts/SideNav";
+import Counter from "./screens/Counter";
+import Routes from "./routes";
 
 function App() {
-    const [unfolded, setUnfolded] = useState(true);
-
-    function collapse(): void {
-        setUnfolded((prevState) => !prevState);
-    }
-
     return (
         <div className={style.App}>
             <header className={style["App-header"]}>
-                <div>
-                    <Header unfolded={unfolded} />
-                </div>
-
-                <div className="main">
-                    <Sidebar unfolded={unfolded} collapse={collapse} />
-                </div>
+                <Counter />
+                <Link href="https://mui.com/getting-started/templates/">
+                    templates
+                </Link>
+                <Routes />
             </header>
         </div>
     );

@@ -6,7 +6,7 @@ $medium: 900px;
   display: flex;
   width: 100%;
   margin-top: 27px, 35px, 20px, 35px;
-  background-color: $BackgroundDarkBlack;
+  background-color: $HeaderBarSideBarBackgroundColorMainTextColor;
   display: flex;
   align-items: center;
   font-family: "Manrope", sans-serif;
@@ -17,7 +17,7 @@ $medium: 900px;
     justify-content: space-around;
     width: 171px;
     margin: 12px 0;
-    border-right: 1px solid $white;
+    border-right: 1px solid $MainBackgroundColor;
 
     .logoSvg {
       display: flex;
@@ -35,7 +35,7 @@ $medium: 900px;
       align-items: center;
       justify-content: center;
       margin: 12px 0;
-      border-right: 1px solid $white;
+      border-right: 1px solid $MainBackgroundColor;
       width: 100px;
     }
   }
@@ -55,7 +55,7 @@ $medium: 900px;
 
       .title {
         display: flex;
-        color: $white;
+        color: $MainBackgroundColor;
         font-size: 16px;
       }
 
@@ -79,18 +79,17 @@ $medium: 900px;
         border-left-style: solid;
         padding: 10px 20px;
         margin: 10px;
-        border-left: 1px solid $white;
+        border-left: 1px solid $MainBackgroundColor;
       }
 
       .userName {
         display: flex;
         font-size: 12px;
-        color: $white;
+        color: $MainBackgroundColor;
         padding-left: 6px;
       }
 
-      .searchBox,
-      .searchBox--focus {
+      .searchBox {
         display: flex;
         margin: 0 30px;
         background-color: $BackgroundLightBlack;
@@ -101,24 +100,28 @@ $medium: 900px;
         font-size: 12px;
         height: 37px;
 
-        &--focus {
-          background-color: $white;
+        &:focus-within {
+          background-color: $MainBackgroundColor;
+          border-radius: 10px;
+          border-style: unset;
+
+          .searchIcon {
+            background-color: $MainBackgroundColor;
+          }
+
+          .searchInput {
+            background: $MainBackgroundColor;
+          }
         }
       }
 
-      .searchIcon,
-      .searchIcon--focus {
+      .searchIcon {
         background-color: $BackgroundLightBlack;
         color: $grey;
         border-radius: 20px;
         border-style: unset;
         width: auto;
         font-size: 12px;
-
-        &--focus {
-          background-color: $white;
-          border-radius: 10px;
-        }
       }
 
       .searchInput {
@@ -130,15 +133,8 @@ $medium: 900px;
         border-style: unset;
         width: 55px;
         font-size: 12px;
+        outline: none;
 
-        &:focus,
-        &--focus {
-          background-color: $white;
-          border-radius: 10px;
-          outline: none;
-          width: 60px;
-          border-style: unset;
-        }
       }
 
       .alertSec {

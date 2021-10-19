@@ -5,65 +5,79 @@ import styles from "./SideNav.module.scss";
 import SideListDiv from "./components/Sidelistdiv";
 
 interface sideProps {
-    unfolded: boolean;
-    collapse: () => void;
+    IsNavigationUnfolded: boolean;
+    setIsNavigationUnfolded: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Sidebar: React.FC<sideProps> = ({ unfolded, collapse }: sideProps) => (
-    <>
-        <nav
-            className={unfolded ? styles.sidebar : styles["sidebar--collapsed"]}
-        >
-            <div
+const Sidebar: React.FC<sideProps> = ({
+    IsNavigationUnfolded,
+    setIsNavigationUnfolded,
+}: sideProps) => {
+    function handleNavigation(): void {
+        setIsNavigationUnfolded((prevState: any) => !prevState);
+    }
+    return (
+        <>
+            <nav
                 className={
-                    unfolded
-                        ? styles.sideWrapper
-                        : styles["sideWrapper--collapsed"]
+                    IsNavigationUnfolded
+                        ? styles.sidebar
+                        : styles["sidebar--collapsed"]
                 }
             >
                 <div
                     className={
-                        unfolded
-                            ? styles.sideWrapper__navBtn
-                            : styles["sideWrapper__navBtn--collapsed"]
+                        IsNavigationUnfolded
+                            ? styles.sideWrapper
+                            : styles["sideWrapper--collapsed"]
                     }
                 >
-                    {unfolded && (
-                        <button
-                            type="button"
-                            className={styles.sideWrapper__navBtn__arrowBtn}
-                            onClick={() => {
-                                collapse();
-                            }}
-                        >
-                            <FiChevronLeft />
-                            Hide
-                        </button>
-                    )}
-                    {!unfolded && (
-                        <button
-                            type="button"
-                            className={styles.sideWrapper__navBtn__arrowBtn}
-                            onClick={() => {
-                                collapse();
-                            }}
-                        >
-                            <FiChevronRight />
-                            Show
-                        </button>
-                    )}
+                    <div
+                        className={
+                            IsNavigationUnfolded
+                                ? styles.sideWrapper__navBtn
+                                : styles["sideWrapper__navBtn--collapsed"]
+                        }
+                    >
+                        {IsNavigationUnfolded && (
+                            <button
+                                type="button"
+                                className={styles.sideWrapper__navBtn__arrowBtn}
+                                onClick={() => {
+                                    handleNavigation();
+                                }}
+                            >
+                                <FiChevronLeft />
+                                Hide
+                            </button>
+                        )}
+                        {!IsNavigationUnfolded && (
+                            <button
+                                type="button"
+                                className={styles.sideWrapper__navBtn__arrowBtn}
+                                onClick={() => {
+                                    handleNavigation();
+                                }}
+                            >
+                                <FiChevronRight />
+                                Show
+                            </button>
+                        )}
+                    </div>
+                    <ul
+                        className={
+                            IsNavigationUnfolded
+                                ? styles.sideMenu
+                                : styles["sideMenu--collapsed"]
+                        }
+                    >
+                        <SideListDiv
+                            IsNavigationUnfolded={IsNavigationUnfolded}
+                        />
+                    </ul>
                 </div>
-                <ul
-                    className={
-                        unfolded
-                            ? styles.sideMenu
-                            : styles["sideMenu--collapsed"]
-                    }
-                >
-                    <SideListDiv unfolded={unfolded} />
-                </ul>
-            </div>
-        </nav>
-    </>
-);
+            </nav>
+        </>
+    );
+};
 export default Sidebar;

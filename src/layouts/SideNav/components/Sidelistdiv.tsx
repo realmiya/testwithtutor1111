@@ -2,10 +2,10 @@ import React from "react";
 import styles from "../SideNav.module.scss";
 import navigationContent from "./Sidelistcontent";
 
-interface SideListDivUnfolded {
-    unfolded: boolean;
+interface ISideListDivProps {
+    IsNavigationUnfolded: boolean;
 }
-const SideListDiv: React.FC<SideListDivUnfolded> = ({ unfolded }) => (
+const SideListDiv: React.FC<ISideListDivProps> = ({ IsNavigationUnfolded }) => (
     <>
         {navigationContent.map((value) => (
             <li className={styles.menuItem} key={value.id}>
@@ -14,7 +14,7 @@ const SideListDiv: React.FC<SideListDivUnfolded> = ({ unfolded }) => (
                         <value.menuIcon size={20} />
                     </div>
                 </div>
-                {unfolded && (
+                {IsNavigationUnfolded && (
                     <div className={styles.menuName}>{value.menuName}</div>
                 )}
             </li>
